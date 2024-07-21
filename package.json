@@ -2,6 +2,10 @@
   "name": "easy-jwt-auth",
   "version": "1.0.0",
   "description": "A package to help you deal with jsonwebtoken easily!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imabhinavdev/easy-jwt-auth.git"
+  },
   "main": "dist/index.js",
   "exports": {
     ".": "./dist/index.js"
