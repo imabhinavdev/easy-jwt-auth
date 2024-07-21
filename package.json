@@ -1,6 +1,6 @@
 {
   "name": "easy-jwt-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A package to help you deal with jsonwebtoken easily!",
   "repository": {
     "type": "git",
