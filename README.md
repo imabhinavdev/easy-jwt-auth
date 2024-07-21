@@ -121,6 +121,8 @@ import { addJWTMethodsToSchema, authMiddleware, signout, refreshToken } from 'ea
 const app = express();
 app.use(express.json());
 
+app.use(authMiddleware({ secret: 'your-secret-key', except: ['/login', '/register'] }));
+
 const userSchema = new mongoose.Schema({
   // Define your schema fields here
 });
@@ -145,7 +147,6 @@ app.post('/login', async (req, res) => {
   res.json({ token, refreshToken });
 });
 
-app.use(authMiddleware({ secret: 'your-secret-key', except: ['/login', '/register'] }));
 
 app.post('/refresh-token', refreshToken('your-secret-key'));
 
