@@ -1,3 +1,7 @@
+Here's the updated README file with the added information about the available methods after using `addJWTMethodsToSchema`:
+
+---
+
 # Easy JWT Auth
 
 Easy JWT Auth is a lightweight library designed to simplify the implementation of JWT authentication in your Node.js applications. This library provides methods to integrate JWT authentication seamlessly with your schema, handle user authentication, and manage token refresh and sign-out processes.
@@ -48,9 +52,12 @@ const User = mongoose.model('User', userSchema);
 ```
 
 **Methods Added to Schema:**
-- `matchPassword(enteredPassword)`: Compares the entered password with the hashed password stored in the database.
-- `generateToken(secret, expiresIn)`: Generates a JWT for the user.
-- `generateRefreshToken(secret, expiresIn)`: Generates a refresh token for the user.
+
+| Method              | Description                                                         | Parameters                                           |
+|---------------------|---------------------------------------------------------------------|------------------------------------------------------|
+| `matchPassword`     | Compares the entered password with the hashed password stored in the database. | `enteredPassword`: The password to compare.         |
+| `generateToken`     | Generates a JWT for the user.                                        | `secret`: The secret key used for signing the token.<br>`expiresIn` (optional): The expiration time of the token (default is '1h'). |
+| `generateRefreshToken` | Generates a refresh token for the user.                              | `secret`: The secret key used for signing the refresh token.<br>`expiresIn` (optional): The expiration time of the refresh token (default is '7d'). |
 
 #### `authMiddleware({ secret, except, algorithms })`
 
@@ -146,7 +153,6 @@ app.post('/login', async (req, res) => {
   const refreshToken = user.generateRefreshToken('your-secret-key');
   res.json({ token, refreshToken });
 });
-
 
 app.post('/refresh-token', refreshToken('your-secret-key'));
 
