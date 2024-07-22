@@ -1,0 +1,15 @@
+# Exclude test files and directories
+tests/
+*.test.js
+
+# Exclude documentation
+docs/
+*.md
+index.js
+utils/
+LICENSE
+
+
+# Exclude development tools and configuration files
+*.config.js
+*.log
