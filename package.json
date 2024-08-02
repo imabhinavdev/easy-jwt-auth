@@ -23,7 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "minimatch": "^10.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",

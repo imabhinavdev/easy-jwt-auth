@@ -1,10 +1,12 @@
 import jwt from 'jsonwebtoken';
-// utils/authMiddleware.js
+import minimatch from 'minimatch';
 
+// utils/authMiddleware.js
 export const authMiddleware = ({ secret, except = [], algorithms = ["HS256"] }) => {
     return (req, res, next) => {
-        // Check if the request path is in the except array
-        if (except.includes(req.path)) {
+        // Check if the request path matches any pattern in the except array
+        const isExcluded = except.some(pattern => minimatch(req.path, pattern));
+        if (isExcluded) {
             return next(); // Skip authentication for excluded routes
         }
 
